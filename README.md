@@ -195,199 +195,199 @@ coverage from patient arrival through discharge.
 
 **Story 1: Walk-in Patient Registration:**
 
-- **Given** a new patient arrives at the ED without prior registration
+* **Given** a new patient arrives at the ED without prior registration
 
-- **When** the registration clerk enters the patient's demographic information and insurance details
+* **When** the registration clerk enters the patient's demographic information and insurance details
 
-- **Then** the system creates a unique patient record, assigns a medical record number, and queues the patient for triage
+* **Then** the system creates a unique patient record, assigns a medical record number, and queues the patient for triage
 
 **Story 2: Ambulance Arrival Registration:**
 
-- **Given** an ambulance arrives with a patient who cannot provide identification
+* **Given** an ambulance arrives with a patient who cannot provide identification
 
-- **When** the registration staff selects "unknown patient" and enters available information from EMS
+* **When** the registration staff selects "unknown patient" and enters available information from EMS
 
-- **Then** the system creates a temporary record with a placeholder ID and flags it for identity verification when the patient is stable
+* **Then** the system creates a temporary record with a placeholder ID and flags it for identity verification when the patient is stable
 
 ### Triage Management
 
 **Story 3: Initial Triage Assessment:**
 
-- **Given** a registered patient is waiting for triage
+* **Given** a registered patient is waiting for triage
 
-- **When** the triage nurse enters vital signs, chief complaint, and pain scale
+* **When** the triage nurse enters vital signs, chief complaint, and pain scale
 
-- **Then** the system calculates an ESI score, assigns a triage level, and positions the patient in the appropriate queue
+* **Then** the system calculates an ESI score, assigns a triage level, and positions the patient in the appropriate queue
 
 **Story 4: Triage Re-assessment:**
 
-- **Given** a patient has been waiting in the queue for 2 hours
+* **Given** a patient has been waiting in the queue for 2 hours
 
-- **When** the triage nurse performs a reassessment and enters updated vital signs
+* **When** the triage nurse performs a reassessment and enters updated vital signs
 
-- **Then** the system recalculates the acuity score and adjusts the patient's queue position if the condition has changed
+* **Then** the system recalculates the acuity score and adjusts the patient's queue position if the condition has changed
 
 ### Bed Management
 
-**Story 5: Bed Assignment**
+**Story 5: Bed Assignment:**
 
-- **Given** multiple patients are waiting for beds and a room becomes available
+* **Given** multiple patients are waiting for beds and a room becomes available
 
-- **When** the charge nurse requests bed assignment recommendations
+* **When** the charge nurse requests bed assignment recommendations
 
-- **Then** the system suggests the highest acuity patient who matches the room type and displays estimated wait times for other patients
+* **Then** the system suggests the highest acuity patient who matches the room type and displays estimated wait times for other patients
 
-**Story 6: Bed Status Updates**
+**Story 6: Bed Status Updates:**
 
-- **Given** a patient is discharged from bed 12
+* **Given** a patient is discharged from bed 12
 
-- **When** the nurse marks the bed as "needs cleaning"
+* **When** the nurse marks the bed as "needs cleaning"
 
-- **Then** the system notifies housekeeping, updates the bed status to "dirty," and removes it from available bed counts
+* **Then** the system notifies housekeeping, updates the bed status to "dirty," and removes it from available bed counts
 
 ### Clinical Workflow
 
 **Story 7: Physician Assessment:**
 
-- **Given** a patient is assigned to bed 8 with completed nursing assessment
+* **Given** a patient is assigned to bed 8 with completed nursing assessment
 
-- **When** Dr. Smith opens the patient's chart on the mobile app
+* **When** Dr. Smith opens the patient's chart on the mobile app
 
-- **Then** the system displays triage notes, vital signs, allergies, and current medications with timestamp information
+* **Then** the system displays triage notes, vital signs, allergies, and current medications with timestamp information
 
 **Story 8: Order Entry:**
 
-- **Given** a physician has examined a patient with chest pain
+* **Given** a physician has examined a patient with chest pain
 
-- **When** the physician enters orders for CBC, troponin, and chest X-ray
+* **When** the physician enters orders for CBC, troponin, and chest X-ray
 
-- **Then** the system sends electronic orders to lab and radiology, creates specimen labels, and adds tasks to the nursing workflow
+* **Then** the system sends electronic orders to lab and radiology, creates specimen labels, and adds tasks to the nursing workflow
 
 ### Laboratory Integration
 
 **Story 9: Lab Result Processing:**
 
-- **Given** laboratory results are ready for a patient
+* **Given** laboratory results are ready for a patient
 
-- **When** the lab system sends results via HL7 interface
+* **When** the lab system sends results via HL7 interface
 
-- **Then** the system updates the patient record, alerts the attending physician, and flags critical values with popup notifications
+* **Then** the system updates the patient record, alerts the attending physician, and flags critical values with popup notifications
 
 **Story 10: Critical Lab Alert:**
 
-- **Given** a patient's troponin result is critically high
+* **Given** a patient's troponin result is critically high
 
-- **When** the result is received from the laboratory
+* **When** the result is received from the laboratory
 
-- **Then** the system immediately alerts the attending physician, charge nurse, and displays a red flag on all patient displays
+* **Then** the system immediately alerts the attending physician, charge nurse, and displays a red flag on all patient displays
 
 ### Medication Management
 
-**Story 11: Medication Administration**
+**Story 11: Medication Administration:**
 
-- **Given** a nurse needs to administer prescribed medication
+* **Given** a nurse needs to administer prescribed medication
 
-- **When** the nurse scans the medication barcode and patient wristband
+* **When** the nurse scans the medication barcode and patient wristband
 
-- **Then** the system verifies the right patient, drug, dose, route, and time, then records the administration with timestamp
+* **Then** the system verifies the right patient, drug, dose, route, and time, then records the administration with timestamp
 
 **Story 12: Allergy Check:**
 
-- **Given** a physician prescribes penicillin for a patient
+* **Given** a physician prescribes penicillin for a patient
 
-- **When** the order is entered into the system
+* **When** the order is entered into the system
 
-- **Then** the system checks against known allergies and displays a warning if penicillin allergy is documented
+* **Then** the system checks against known allergies and displays a warning if penicillin allergy is documented
 
 ### Queue Management
 
-**Story 13: Dynamic Queue Updates**
+**Story 13: Dynamic Queue Updates:**
 
-- **Given** the ED has 15 patients waiting to be seen
+* **Given** the ED has 15 patients waiting to be seen
 
-- **When** a new trauma patient arrives with ESI level 1
+* **When** a new trauma patient arrives with ESI level 1
 
-- **Then** the system moves the trauma patient to the front of the queue and updates wait time estimates for other patients
+* **Then** the system moves the trauma patient to the front of the queue and updates wait time estimates for other patients
 
 **Story 14: Provider Assignment:**
 
-- **Given** Dr. Johnson becomes available after completing a discharge
+* **Given** Dr. Johnson becomes available after completing a discharge
 
-- **When** the system identifies the next patient to be seen
+* **When** the system identifies the next patient to be seen
 
-- **Then** the system assigns the highest priority patient to Dr. Johnson and sends a notification to his mobile device
+* **Then** the system assigns the highest priority patient to Dr. Johnson and sends a notification to his mobile device
 
 ### Discharge Management
 
 **Story 15: Patient Discharge:**
 
-- **Given** a patient is ready for discharge with completed treatment
+* **Given** a patient is ready for discharge with completed treatment
 
-- **When** the physician enters discharge orders and instructions
+* **When** the physician enters discharge orders and instructions
 
-- **Then** the system generates discharge paperwork, updates bed availability, and triggers billing processes
+* **Then** the system generates discharge paperwork, updates bed availability, and triggers billing processes
 
 **Story 16: Discharge Follow-up:**
 
-- **Given** a patient is discharged with instructions for primary care follow-up
+* **Given** a patient is discharged with instructions for primary care follow-up
 
-- **When** the discharge process is completed
+* **When** the discharge process is completed
 
-- **Then** the system automatically schedules a follow-up reminder and sends discharge instructions to the patient's portal
+* **Then** the system automatically schedules a follow-up reminder and sends discharge instructions to the patient's portal
 
-### Reporting and Analytics
+### Performance Monitoring
 
 **Story 17: Real-time Dashboard:**
 
-- **Given** the charge nurse needs to monitor department status
+* **Given** the charge nurse needs to monitor department status
 
-- **When** the nurse accesses the main dashboard
+* **When** the nurse accesses the main dashboard
 
-- **Then** the system displays current patient census, average wait times, bed availability, and staff assignments updated every 30 seconds
+* **Then** the system displays current patient census, average wait times, bed availability, and staff assignments updated every 30 seconds
 
 **Story 18: Performance Metrics:**
 
-- **Given** the ED manager needs monthly performance data
+* **Given** the ED manager needs monthly performance data
 
-- **When** the manager runs the monthly report
+* **When** the manager runs the monthly report
 
-- **Then** the system generates metrics for average length of stay, left without being seen rates, and patient satisfaction scores
+* **Then** the system generates metrics for average length of stay, left without being seen rates, and patient satisfaction scores
 
 ### Emergency Protocols
 
 **Story 19: Mass Casualty Activation:**
 
-- **Given** a mass casualty incident is declared
+* **Given** a mass casualty incident is declared
 
-- **When** the charge nurse activates disaster protocol
+* **When** the charge nurse activates disaster protocol
 
-- **Then** the system switches to surge capacity mode, alerts additional staff, and creates rapid registration workflows
+* **Then** the system switches to surge capacity mode, alerts additional staff, and creates rapid registration workflows
 
 **Story 20: Code Blue Response:**
 
-- **Given** a patient in bed 5 goes into cardiac arrest
+* **Given** a patient in bed 5 goes into cardiac arrest
 
-- **When** the nurse presses the code blue button
+* **When** the nurse presses the code blue button
 
-- **Then** the system immediately alerts the code team, displays patient location on all devices, and opens the resuscitation documentation template
+* **Then** the system immediately alerts the code team, displays patient location on all devices, and opens the resuscitation documentation template
 
 ### Security and Audit
 
 **Story 21: User Authentication:**
 
-- **Given** a nurse attempts to log into the system
+* **Given** a nurse attempts to log into the system
 
-- **When** they enter their credentials and badge scan
+* **When** they enter their credentials and badge scan
 
-- **Then** the system authenticates the user, logs the access attempt, and displays their personalized dashboard
+* **Then** the system authenticates the user, logs the access attempt, and displays their personalized dashboard
 
 **Story 22: Audit Trail:**
 
-- **Given** a patient record has been accessed multiple times
+* **Given** a patient record has been accessed multiple times
 
-- **When** the compliance officer reviews access logs
+* **When** the compliance officer reviews access logs
 
-- **Then** the system displays all users who viewed the record, timestamps, and specific data elements accessed
+* **Then** the system displays all users who viewed the record, timestamps, and specific data elements accessed
 
 ## Test Automation
 
@@ -402,20 +402,46 @@ and validate.
 
 **Key Components:**
 
-- Feature description with user story format (As a... I want... So that...)
+* Feature description with user story format (As a... I want... So that...)
 
-- Background section for common setup steps
+* Background section for common setup steps
 
-- Multiple scenarios covering different use cases including happy path, edge cases, and error conditions
+* Multiple scenarios covering different use cases including happy path, edge cases, and error conditions
 
 **Gherkin Best Practices:**
 
-- Uses data tables for structured input
+* Uses data tables for structured input
 
-- Includes specific validation steps and error handling
+* Includes specific validation steps and error handling
 
-- Covers both positive and negative test cases
+* Covers both positive and negative test cases
 
-- Clear, actionable steps that can be automated
+* Clear, actionable steps that can be automated
 
-- Descriptive scenario names that explain the business value
+* Descriptive scenario names that explain the business value
+
+**Files:**
+
+* [features/01-walk-in-patient-registration.feature](features/01-walk-in-patient-registration.feature)
+* [features/02-ambulance-arrival-registration.feature](features/02-ambulance-arrival-registration.feature)
+* [features/03-initial-triage-assessment.feature](features/03-initial-triage-assessment.feature)
+* [features/04-triage-re-assessment.feature](features/04-triage-re-assessment.feature)
+* [features/05-bed-assignment.feature](features/05-bed-assignment.feature)
+* [features/06-bed-status-updates.feature](features/06-bed-status-updates.feature)
+* [features/07-physician-assessment.feature](features/07-physician-assessment.feature)
+* [features/08-order-entry.feature](features/08-order-entry.feature)
+* [features/09-lab-result-processing.feature](features/09-lab-result-processing.feature)
+* [features/10-critical-lab-alert.feature](features/10-critical-lab-alert.feature)
+* [features/11-medication-administration.feature](features/11-medication-administration.feature)
+* [features/12-allergy-check.feature](features/12-allergy-check.feature)
+* [features/13-dynamic-queue-updates.feature](features/13-dynamic-queue-updates.feature)
+* [features/14-provider-assignment.feature](features/14-provider-assignment.feature)
+* [features/15-patient-discharge.feature](features/15-patient-discharge.feature)
+* [features/16-discharge-follow-up.feature](features/16-discharge-follow-up.feature)
+* [features/17-real-time-dashboard.feature](features/17-real-time-dashboard.feature)
+* [features/18-performance-metrics.feature](features/18-performance-metrics.feature)
+* [features/19-mass-casualty-activation.feature](features/19-mass-casualty-activation.feature)
+* [features/20-code-blue-response.feature](features/20-code-blue-response.feature)
+* [features/21-user-authentication.feature](features/21-user-authentication.feature)
+* [features/22-audit-trail.feature](features/22-audit-trail.feature)
+  
